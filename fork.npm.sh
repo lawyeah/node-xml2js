@@ -5,6 +5,7 @@ mkdir -p npmpkg
 rm -rf npmpkg/*
 mkdir -p npmpkg/lib
 cp -r lib/* npmpkg/lib
+cp -r types/* npmpkg
 cp package.json package.save
 npx clean-pkg-json
 mv package.json npmpkg

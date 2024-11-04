@@ -7,6 +7,7 @@
   ],
   "homepage": "https://github.com/Leonidas-from-XIV/node-xml2js",
   "version": "1.0.0",
+  "types": "index.d.ts",
   "author": "Marek Kubica <marek@xivilization.net> (https://xivilization.net)",
   "contributors": [
     "maqr <maqr.lollerskates@gmail.com> (https://github.com/maqr)",
