@@ -144,15 +144,15 @@ class exports.Parser extends events
       # remove the '#' key altogether if it's blank
       if obj[charkey].match(/^\s*$/) and not cdata
         emptyStr = obj[charkey]
-        delete obj[charkey]
-      else
-        obj[charkey] = obj[charkey].trim() if @options.trim
-        obj[charkey] = obj[charkey].replace(/\s{2,}/g, " ").trim() if @options.normalize
-        obj[charkey] = if @options.valueProcessors then processItem @options.valueProcessors, obj[charkey], nodeName else obj[charkey]
-        # also do away with '#' key altogether, if there's no subkeys
-        # unless EXPLICIT_CHARKEY is set
-        if Object.keys(obj).length == 1 and charkey of obj and not @EXPLICIT_CHARKEY
-          obj = obj[charkey]
+        # delete obj[charkey]
+        
+      obj[charkey] = obj[charkey].trim() if @options.trim
+      obj[charkey] = obj[charkey].replace(/\s{2,}/g, " ").trim() if @options.normalize
+      obj[charkey] = if @options.valueProcessors then processItem @options.valueProcessors, obj[charkey], nodeName else obj[charkey]
+      # also do away with '#' key altogether, if there's no subkeys
+      # unless EXPLICIT_CHARKEY is set
+      if Object.keys(obj).length == 1 and charkey of obj and not @EXPLICIT_CHARKEY
+        obj = obj[charkey]
 
       if (isEmpty obj)
         if typeof @options.emptyTag == 'function'
